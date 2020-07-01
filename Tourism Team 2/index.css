@@ -8,6 +8,11 @@ header{
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#error{
+    text-align: center;
+    color: red;
+}
+
 #account{
     padding-left: 85em;
 }
