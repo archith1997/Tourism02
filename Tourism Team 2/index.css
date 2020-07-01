@@ -13,6 +13,41 @@ header{
     color: red;
 }
 
+/* Style the container for inputs */
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+#message {
+    text-align: center;
+    display:none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: darkgreen;
+}
+  
+.valid:before {
+    position: relative;
+    left: -35px;
+}
+  
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+  
+.invalid:before {
+    position: relative;
+    left: -35px;
+}
+
 #account{
     padding-left: 85em;
 }
@@ -36,7 +71,7 @@ nav{
     width: 90%;
     height: 90%;
     box-shadow: 20px 20px 20px;
-    background-color: aqua;
+    background-color: royalblue;
     padding-bottom: 5em;
 }
 
