@@ -13,6 +13,20 @@ header{
     color: red;
 }
 
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
 /* Style the container for inputs */
 .container {
     background-color: #f1f1f1;
