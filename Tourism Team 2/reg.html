@@ -14,12 +14,14 @@
     <header><h1>SOS Tourism</h1></header>
     <nav>
         <a href="index.html">Home</a> &nbsp; &nbsp;
+        <a href="event.html">Events</a> &nbsp; &nbsp;
+        <a href="hotels.html">Hotels</a> &nbsp; &nbsp;
+        <a href="restaurants.html">Restaurants</a> &nbsp; &nbsp;
     </nav><br>
     <main>
         <div id="mid">
             <br><br>
             <table align="center" cellspacing="20" id="profile">
-                <p id="error"></p>
                 <tr>
                     <td>
                         <label for="firstName">First Name</label>
@@ -28,6 +30,7 @@
                         <input type="text" id="firstName" placeholder="First Name" required>
                     </td>
                 </tr>
+                <tr><p id="firstNameError" class="errorMsg"></p></tr>
                 <tr>
                     <td>
                         <label for="lastName">Last Name</label>
@@ -36,14 +39,7 @@
                         <input type="text" id="lastName" placeholder="Last Name" required>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <label for="State">State</label>
-                    </td>
-                    <td>
-                        <input type="text" id="state" placeholder="State" required>
-                    </td>
-                </tr>
+                <tr><p id="lastNameError" class="errorMsg"></p></tr>
                 <tr>
                     <td>
                         <label for="email">Email</label>
@@ -51,18 +47,26 @@
                     <td>
                         <input type="email" id="email" placeholder="Email" required>
                     </td>
+                    <tr><p id="emailError" class="errorMsg"></p></tr>
                 </tr>
                 <tr>
                     <td>
-                        <label for="password">Password</label>
+                        <label for="pw1">Password</label>
                     </td>
                     <td>
-                        <input type="password" id="password" placeholder="Password"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                        title="Must contain at least one number and one uppercase and lowercase letter, 
-                        and at least 8 or more characters" required>  
+                        <input type="password" id="pw1" placeholder="Password"/> 
                     </td>
                 </tr>
+                <tr></tr>
+                <tr>
+                    <td>
+                        <label for="pw2">Confirm Password</label>
+                    </td>
+                    <td>
+                        <input type="password" id="pw2" placeholder="Confirm Passwrd"/>
+                    </td>
+                </tr>
+                <tr><p id="passwordError" class="errorMsg"></p></tr>
             </table>
             <div id="message">
                 <h3>Password must contain the following:</h3>

@@ -1,154 +1,142 @@
-var errorDiv = document.getElementById("error");
+// validate entered first name
+function validateFirstName() {
+   var unInput = document.getElementById("firstName");
+   var errorDiv = document.getElementById("firstNameError");
+   try {
+      //if(unInput.value.length < 4){
+      if(/.{2,}/.test(unInput.value) === false){
+         throw "First name must be at least 2 charcters long";
+      }
+      else if(/\W/.test(unInput.value) === true){
+         throw "username must contain only letters";
+      }
 
-//validation for first name
-function checkValueFN(){
-    //first name var
-    var firstName = document.getElementById("firstName").value;
-    if(firstName.length < 2){
-        errorDiv.innerHTML = "Please provide a valid first name!!";
-    }
-    else if(firstName.length >= 2){
-        errorDiv.innerHTML = "";
-    }
+      // remove any username error styling and message
+      unInput.style.background = "";
+      errorDiv.style.display = "none";
+      errorDiv.innerHTML = "";
+   }
+   catch(msg) {
+      // display error message
+      errorDiv.style.display = "block";
+      errorDiv.innerHTML = msg;
+      // change input style
+      unInput.style.background = "rgb(255,233,233)";
+   }
 }
 
-//validation for last name
-function checkValueLN(){
-    //last name var
-    var lastName = document.getElementById("lastName").value;
-    if(lastName.length < 2){
-        errorDiv.innerHTML = "Please provide a valid last name!!";
+// validate entered last name
+function validateLasttName() {
+    var unInput = document.getElementById("lastName");
+    var errorDiv = document.getElementById("lastNameError");
+    try {
+       //if(unInput.value.length < 4){
+       if(/.{2,}/.test(unInput.value) === false){
+          throw "Last Name must be at least 2 charcters long";
+       }
+       else if(/\W/.test(unInput.value) === true){
+          throw "username must contain only letters";
+       }
+ 
+       // remove any username error styling and message
+       unInput.style.background = "";
+       errorDiv.style.display = "none";
+       errorDiv.innerHTML = "";
     }
-    else if(lastName.length >= 2){
-        errorDiv.innerHTML = "";
+    catch(msg) {
+       // display error message
+       errorDiv.style.display = "block";
+       errorDiv.innerHTML = msg;
+       // change input style
+       unInput.style.background = "rgb(255,233,233)";
     }
+ }
+
+// validate entered password
+function validatePassword() {
+   var pw1Input = document.getElementById("pw1");
+   var pw2Input = document.getElementById("pw2");
+   var errorDiv = document.getElementById("passwordError");
+   try {
+      //if(pw1Input.value.length < 8){
+      if(/.{8,}/.test(pw1Input.value) === false){
+         throw "password must be at least 8 charcters";
+      }
+      else if(pw1Input.value.localeCompare(pw2Input.value) !== 0){
+         throw "passwords must match";
+      }
+      else if(/[a-zA-z]/.test(pw1Input.value) === false){
+         throw "password must contain at least one letter";
+      }
+      else if(/\d/.test(pw1Input.value) === false){
+         throw "password must contain at least one number";
+      }
+      else if(/[ !@#_]/.test(pw1Input.value) === false){
+         throw "password must contain at least on of the following symbols: ! @ # _";
+      }
+
+      // remove any password error styling and message
+      pw1Input.style.background = "";
+      pw2Input.style.background = "";
+      errorDiv.style.display = "none";
+      errorDiv.innerHTML = "";
+   }
+   catch(msg) {
+      // display error message
+      errorDiv.style.display = "block";
+      errorDiv.innerHTML = msg;
+      // change input style
+      pw1Input.style.background = "rgb(255,233,233)";
+      pw2Input.style.background = "rgb(255,233,233)";      
+   }
 }
 
-//validation for state
-function checkValueS(){
-    //input state var
-    var state = document.getElementById("state").value;
-    //US states var
-    var states = [
-        'Arizona', 'Alabama', 'Alaska',
-        'Arkansas', 'California','Colorado',
-        'Connecticut', 'Delaware', 'Florida', 
-        'Georgia', 'Hawaii', 'Idaho', 
-        'Illinois', 'Indiana', 'Iowa', 
-        'Kansas', 'Kentucky', 'Louisiana', 
-        'Maine', 'Maryland', 'Massachusetts', 
-        'Michigan', 'Minnesota', 'Mississippi', 
-        'Missouri', 'Montana', 'Nebraska',
-        'Nevada', 'New Hampshire', 'New Jersey', 
-        'New Mexico', 'New York', 'North Carolina', 
-        'North Dakota', 'Ohio', 'Oklahoma', 
-        'Oregon', 'Pennsylvania', 'Rhode Island', 
-        'South Carolina', 'South Dakota', 'Tennessee', 
-        'Texas', 'Utah', 'Vermont', 'Virginia',
-        'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-    ]
-    if(states.includes(state)){
-        errorDiv.innerHTML = "";
-    }
-    else{
-        errorDiv.innerHTML = "Please provide a valid State";
-    }
+// validate entered email
+function validateEmail() {
+   var emailInput = document.getElementById("email");
+   var errorDiv = document.getElementById("emailError");
+   var emailCheck = /^[_\w\-]+(\.[_\w\-]+)*@[\w\-]+(\.[\w\-]+)*(\.[\D]{2,6})$/;
+   try {
+      if(emailCheck.test(emailInput.value) === false){  
+         throw "please provide a valid email address";
+      }
+
+      // remove any email error styling and message
+      emailInput.style.background = "";
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = "none";
+      // convert email address to lowercase
+      emailInput.value = emailInput.value.toLowerCase();
+   }
+   catch(msg) {
+      // display error message
+      errorDiv.innerHTML = msg;
+      errorDiv.style.display = "block";
+      // change input style
+      emailInput.style.background = "rgb(255,233,233)";
+   }
 }
 
-function checkValueE(){
-    var email = document.getElementById("email").value;
-
-    if(email.includes("@") && email.includes(".") && email.length > 10 && email.charAt(0) !== "@" && email.charAt(0) !== "."){  
-        errorDiv.innerHTML = "";
-    }
-    else{
-        errorDiv.innerHTML = "Please provide a valid email address";
-    }
+function createEventListeners() {
+   var unInput = document.getElementById("firstName");
+   var unInput2 = document.getElementById("lastName");
+   var pw2Input = document.getElementById("pw2");
+   var emailInput = document.getElementById("email");
+   if (unInput.addEventListener) {
+      unInput.addEventListener("change", validateFirstName, false);
+      unInput2.addEventListener("change", validateLasttName, false); 
+      pw2Input.addEventListener("change", validatePassword, false); 
+      emailInput.addEventListener("change", validateEmail, false); 
+   } else if (unInput.attachEvent) {
+      unInput.attachEvent("onchange", validateFirstName);
+      unInput2.attachEvent("onchange", validateLasttName);
+      pw2Input.attachEvent("onchange", validatePassword);
+      emailInput.attachEvent("onchange", validateEmail);
+   }
 }
 
-var myInput = document.getElementById("password");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
-
-// When the user clicks on the password field, show the message box
-myInput.onfocus = function() {
-    document.getElementById("message").style.display = "block";
-}
-
-// When the user clicks outside of the password field, hide the message box
-myInput.onblur = function() {
-    document.getElementById("message").style.display = "none";
-}   
-
-// When the user starts to type something inside the password field
-myInput.onkeyup = function() {
-    // Validate lowercase letters
-    var lowerCaseLetters = /[a-z]/g;
-    if(myInput.value.match(lowerCaseLetters)) {
-        letter.classList.remove("invalid");
-        letter.classList.add("valid");
-    } 
-    else {
-        letter.classList.remove("valid");
-        letter.classList.add("invalid");
-    }       
-
-    // Validate capital letters
-    var upperCaseLetters = /[A-Z]/g;
-    if(myInput.value.match(upperCaseLetters)) {
-        capital.classList.remove("invalid");
-        capital.classList.add("valid");
-    } 
-    else {
-        capital.classList.remove("valid");
-        capital.classList.add("invalid");
-    }
-
-    // Validate numbers
-    var numbers = /[0-9]/g;
-    if(myInput.value.match(numbers)) {
-        number.classList.remove("invalid");
-        number.classList.add("valid");
-    } 
-    else {
-        number.classList.remove("valid");
-        number.classList.add("invalid");
-    }
-
-    // Validate length
-    if(myInput.value.length >= 8) {
-        length.classList.remove("invalid");
-        length.classList.add("valid");
-    }  
-    else {
-        length.classList.remove("valid");
-        length.classList.add("invalid");
-    }
-}
-
-//when change
-var fnInput = document.getElementById("firstName");
-if (fnInput.addEventListener){
-    fnInput.addEventListener("change", checkValueFN, false); 
-} 
-else if(fnInput.attachEvent){
-    fnInput.attachEvent("onchange", checkValueFN);
-}
-
-var lnInput = document.getElementById("lastName");
-if (lnInput.addEventListener){
-    lnInput.addEventListener("change", checkValueLN, false); 
-} 
-else if(lnInput.attachEvent){
-    lnInput.attachEvent("onchange", checkValueLN);
-}
-
-var sInput = document.getElementById("state");
-if(sInput.addEventListener){
-    sInput.addEventListener("change", checkValueS, false);
-}
-else if(sInput.attachEvent){
-    sInput.attachEvent("onchange", checkValueS);
+if (window.addEventListener) {
+   window.addEventListener("load", createEventListeners, false);
+} else if (window.attachEvent) {
+   window.attachEvent("onload", createEventListeners);
 }

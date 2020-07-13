@@ -89,6 +89,12 @@ nav{
     padding-bottom: 5em;
 }
 
+p.errorMsg {
+    display: none;
+    color: red;
+    text-align: center;
+ }
+
 p{
     margin-left: 5em;
     margin-right: 5em;
