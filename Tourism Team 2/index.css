@@ -93,6 +93,13 @@ nav{
     border: 2px solid black;
 }
 
+#ReOpen p, #ReOpen span{
+    padding-left: 2em;
+}
+
+h2 a:visited{ color: black; }
+h2 a:hover{ color: red; }
+
 p.errorMsg {
     display: none;
     color: red;
