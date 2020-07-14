@@ -89,6 +89,10 @@ nav{
     padding-bottom: 5em;
 }
 
+td{
+    border: 2px solid black;
+}
+
 p.errorMsg {
     display: none;
     color: red;
