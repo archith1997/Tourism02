@@ -88,13 +88,22 @@ nav{
     background-color: royalblue;
     padding-bottom: 5em;
 }
-
+ul.col-list { 
+    -webkit-column-count: 3; 
+    -moz-column-count: 3; 
+    column-count: 3; 
+    -webkit-column-gap:35px; 
+    -moz-column-gap:35px; 
+    column-gap:35px; 
+}
 #ReOpen td{
     border: 2px solid black;
 }
 
-#ReOpen p, #ReOpen span{
+#ReOpen p, #ReOpen span, #ReOpen h3{
     padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 2em;
 }
 
 h2 a:visited{ color: black; }
