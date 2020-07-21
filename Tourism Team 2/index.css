@@ -95,6 +95,7 @@ ul.col-list {
     -webkit-column-gap:35px; 
     -moz-column-gap:35px; 
     column-gap:35px; 
+    padding-left: 2em;
 }
 #ReOpen td{
     border: 2px solid black;
